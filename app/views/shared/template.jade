@@ -3,9 +3,30 @@ html
   head
     meta(charset='utf-8')
     title= title
+    link(href='http://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css', rel='stylesheet')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
     link(href='/less/app.css', rel='stylesheet')
   body
+    .nav
+      .container
+        ul.pull-left
+          li
+            a(href='/') Home
+          li
+            a(href='/about') About
+          li
+            a(href='/contact') Contact
+          li
+            a(href='/trust') Trust & Safety
+        ul.pull-right
+          li
+            a(href='/register') Sign Up
+          li
+            a(href='/login') Log In
+
     block content
+
+
 
     script(src='/js/vendor/jquery-2.1.1.js')
     script(src='/js/vendor/lodash-2.4.1.js')
@@ -13,6 +34,7 @@ html
     script(src='/js/vendor/traceur.js')
     script(src='/socket.io/socket.io.js')
     script(src='/js/es5/main.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
     script(src='/js/es6/compiled/main.js')
     script(src='/js/es6/compiled/sockets.js')
 

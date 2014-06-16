@@ -1,4 +1,48 @@
 extends ../shared/template
 
 block content
-  h1= title
+  .jumbotron
+    .container
+        h1 Rediscover Your Day
+        p Pass off your smaller tasks and focus on what really matters.
+        a(href='#') Learn More
+
+  .neighborhood-guides
+    .container
+        h2 Meet your extra hands
+        p
+          | Not sure where to turn? We've created neighborhood guides for cities all around the world
+        .row
+          .col-md-4
+            .thumbnail
+              img(src='http://goo.gl/0sX3jq')
+            .thumbnail
+              img(src='http://goo.gl/an2HXY')
+          .col-md-4
+            .thumbnail
+              img(src='http://goo.gl/Av1pac')
+            .thumbnail
+              img(src='http://goo.gl/vw43v1')
+          .col-md-4
+            .thmubnail
+              img(src='http://goo.gl/0Kd7UO')
+
+  .learn-more
+    .container
+      .row
+        .col-md-4
+          h3 Travel
+          p
+            | From apartments and rooms to treehouses and boats: stay in unique spaces in 192 countries.
+          p
+            a(href='#') See how to travel on Airbnb
+        .col-md-4
+          h3 Host
+          p Renting out your unused space could pay your bills or fund your next vacation.
+          p
+            a(href='#') Learn more about hosting
+        .col-md-4
+          h3 Trust and Safety
+          p From Verified ID to our worldwide customer support team, we've got your back.
+          p
+            a(href='#') Learn about trust at Airbnb

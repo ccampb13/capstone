@@ -17,6 +17,13 @@ function load(app, fn){
   var home = traceur.require(__dirname + '/../routes/home.js');
 
   app.get('/', dbg, home.index);
+  app.get('/about', dbg, home.about);
+  app.get('/contact', dbg, home.contact);
+  app.get('/trust', dbg, home.trust);
+
+
+  
+
   console.log('Routes Loaded');
   fn();
 }
