@@ -23,6 +23,8 @@ html
             a(href='/register') Sign Up
           li
             a(href='/login') Log In
+          form.logout(method='POST', action='/logout')
+            button Logout
 
     block content
 
