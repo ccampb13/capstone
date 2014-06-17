@@ -1,3 +1,7 @@
+@main-color: #008D97;
+///////////////HOME.INDEX///////////////////////////
+////////////////////////////////////////////////////
+
 .nav a {
   color: #5a5a5a;
   font-size: 11px;
@@ -30,7 +34,7 @@
 
 .jumbotron a {
   font-size: 20px;
-  color: blue;
+  color: black;
 }
 
 .learn-more {
@@ -71,3 +75,89 @@
   display: inline-block;
   margin: 1px;
 }
+
+#loginName {
+  display: inline;
+  margin-right: 5px;
+}
+
+/////////////Login Page /////////////////////////////////////
+///////////////////////////////////////////////////////////
+
+.login-container {
+  margin-top: 50px;
+}
+
+.col-md-12 {
+  h1 {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+  }
+}
+
+form#login {
+
+  input[type='password'], input[type='email'] {
+    display:block;
+    width: 40%;
+    min-width: 230px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: #fbfbfb;
+    border:none;
+    border-bottom: 3px @main-color;
+    color: green;
+  }
+  button#login{
+    webkit-appearance:none;
+    display:block;
+    width: 220px;
+    margin: 15px auto;
+    border:3px solid white;
+    padding:10px 0px;
+    background-color: @main-color;
+    color: #FFFFFF;
+  }
+}
+
+/////////////REGISTER PAGE ///////////////////////////////
+//////////////////////////////////////////////////////////
+.register-container {
+  margin-top: 50px;
+}
+
+
+form#register {
+  input[type='email'] {
+    display:block;
+    width: 40%;
+    min-width: 230px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: #fbfbfb;
+    border:none;
+    border-bottom: 3px solid white;
+    color: green;
+  }
+
+  button#register{
+    webkit-appearance:none;
+    display:block;
+    width: 220px;
+    margin: 15px auto;
+    border:3px solid white;
+    padding:10px 0px;
+    background-color: @main-color;
+    color: #FFFFFF;
+  }
+}
+////////////ABOUT PAGE //////////////////////////////////
+/////////////////////////////////////////////////////////
+// .about {
+//     background-image: url('http://picjumbo.picjumbocom.netdna-cdn.com/wp-content/uploads/GOPR0024-1300x975.jpg');
+//     background-size: cover;
+//     height: 500px;
+//
+// }

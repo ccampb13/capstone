@@ -1,13 +1,18 @@
 extends ../shared/template
 
 block content
-  h1= title
 
-  form(method='post', action='/login')
-    input(type='email', name='email', placeholder='Email', autofocus=true)
-    input(type='password', name='password', placeholder='Password')
-    button Login
 
-  p
-    | Don't have an account?
-    a(href='/register') Sign up
+  .login
+    .login-container
+      .row
+        .col-md-12
+          h1= title
+          form#login(method='post', action='/login')
+            input(type='email', name='email', placeholder='Email', autofocus=true)
+            input(type='password', name='password', placeholder='Password')
+            button#login Login
+
+          p
+            | Don't have an account?
+            a(href='/register') Sign up

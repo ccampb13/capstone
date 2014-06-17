@@ -8,7 +8,7 @@ exports.login = (req, res)=>{
 };
 
 exports.register = (req, res)=>{
-  res.render('users/register', {title: 'Register User'});
+  res.render('users/register', {title: 'Register'});
 };
 
 exports.authenticate = (req, res)=>{
@@ -65,5 +65,5 @@ exports.bounce = (req, res, next)=>{
 
 exports.logout = (req, res)=>{
   req.session = null;
-  res.redirect('/login');
+  res.redirect('/');
 };

@@ -60,9 +60,9 @@ function sendVerificationEmail(user, fn){
   });
 
   var form = post.form();
-  form.append('from', 'admin@arena.com');
+  form.append('from', 'admin@capstone.com');
   form.append('to', user.email);
-  form.append('subject', 'Please verify your email address on ARENA');
+  form.append('subject', 'Please verify your email address on Capstone');
   form.append('html', `<a href="http://localhost:4000/verify/${user._id}">Click to Verify</a>`);
 }
 
