@@ -1,9 +1,11 @@
 extends ../shared/template
 
 block content
-  h1= title
-  h2= u.email
-
-  form(method='post', action='/verify/' + u._id)
-    input(type='password', name='password', autofocus=true, placeholder='Enter Password')
-    button Set Password
+  .verify
+    .verify-container
+      .row
+        .col-md-12
+          h1= title
+          form#verify(method='post', action='/verify/' + u._id)
+            input(type='password', name='password', autofocus=true, placeholder='Enter Password')
+            button#verify Set Password

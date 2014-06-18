@@ -15,7 +15,7 @@ exports.authenticate = (req, res)=>{
   User.login(req.body, user=>{
     if(user){
       req.session.userId = user._id;
-      res.redirect('/');
+      res.redirect('users/show');
     }else{
       req.session = null;
       res.redirect('/login');
@@ -66,4 +66,16 @@ exports.bounce = (req, res, next)=>{
 exports.logout = (req, res)=>{
   req.session = null;
   res.redirect('/');
+};
+
+exports.show = (req, res)=>{
+  User.findById(req.params.userId, user=>{
+    res.render('users/show' , {showUser:user, title: 'Profile Page'});
+  });
+};
+
+exports.edit = (req, res)=>{
+  User.findById(req.params.userId, user=>{
+    res.render('users/edit', {user:user, title: 'Edit Profile'});
+  });
 };

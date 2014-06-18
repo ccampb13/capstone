@@ -130,7 +130,7 @@ form#login {
 
 
 form#register {
-  input[type='email'] {
+  input[type='email'], input[type='name'], input[type='zipcode'] {
     display:block;
     width: 40%;
     min-width: 230px;
@@ -153,6 +153,137 @@ form#register {
     color: #FFFFFF;
   }
 }
+
+//////////////VERIFY PAGE////////////////////////////////
+/////////////////////////////////////////////////////////
+.verify-container {
+  margin-top: 50px;
+}
+
+
+form#verify {
+  input[type='password'] {
+    display:block;
+    width: 40%;
+    min-width: 230px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: #fbfbfb;
+    border:none;
+    border-bottom: 3px solid white;
+    color: green;
+  }
+
+  button#verify{
+    webkit-appearance:none;
+    display:block;
+    width: 220px;
+    margin: 15px auto;
+    border:3px solid white;
+    padding:10px 0px;
+    background-color: @main-color;
+    color: #FFFFFF;
+  }
+}
+
+
+/////////////Edit Profile PAGE ///////////////////////////////
+//////////////////////////////////////////////////////////
+.edit-container {
+  margin-top: 50px;
+}
+
+
+form#update {
+  input[type='email'], input[type='name'], input[type='zipcode'] {
+    display:block;
+    width: 40%;
+    min-width: 230px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: #fbfbfb;
+    border:none;
+    border-bottom: 3px solid white;
+    color: green;
+  }
+
+  button#update{
+    webkit-appearance:none;
+    display:block;
+    width: 220px;
+    margin: 15px auto;
+    border:3px solid white;
+    padding:10px 0px;
+    background-color: @main-color;
+    color: #FFFFFF;
+  }
+}
+
+//////////////WELCOME JADE EMAIL////////////////////////////////
+/////////////////////////////////////////////////////////
+.welcome-container {
+  margin-top: 50px;
+}
+
+.welcomeImage {
+  height: 50%;
+  width: 50%;
+}
+
+////////////////PROFILE PAGE/////////////////////////////////
+.profile-wrapper {
+  margin: 0 auto;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 15px;
+  background: white;
+}
+
+.interact {
+  .btn{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+    ul {
+    list-style-type: none;
+      }
+  position: relative;
+  top: 50px;
+  // left: 800px;
+  display: inline-block;
+  // border: 1px solid black;
+}
+
+.profile-bar {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  // margin: 0 auto;
+  width: 90%;
+  height: 200px;
+
+  border: 1px solid black;
+  background-image: contain;
+  background-repeat: no-repeat;
+  border-radius: 15px;
+  text-align: center;
+
+  h1 {
+    line-height: 200px;
+    color: white;
+  }
+}
+
+.interact, .info {
+
+    ul{
+    list-style-position: inside;
+    }
+}
+
+
 ////////////ABOUT PAGE //////////////////////////////////
 /////////////////////////////////////////////////////////
 // .about {

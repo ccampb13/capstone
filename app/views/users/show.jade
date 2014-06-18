@@ -1,0 +1,26 @@
+extends ../shared/template
+
+block content
+  h1= title
+
+  .profile-wrapper
+    .row
+      .profile-bar
+    .row
+      .col-sm-12.col-md-1
+      .col-sm-12.col-md-3
+        .profile-pic
+        .info
+            li
+              h4 Zipcode #{user.zipcode}
+      .col-sm-12.col-md-4
+        .row
+          .about-me
+            p
+      .interact.col-sm-12.col-md-2
+        ul
+          li
+            a email
+          li
+            a.btn.btn-default(href='/users/:userId/edit') edit profile
+      .col-sm-12.col-md-2

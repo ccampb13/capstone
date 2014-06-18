@@ -15,6 +15,8 @@ class User{
         user.email = obj.email;
         user.password = '';
         user.isValid = false;
+        user.name = obj.name;
+        user.zipcode = obj.zipcode;
 
         userCollection.save(user, ()=>{
           sendVerificationEmail(user, fn);
@@ -42,6 +44,7 @@ class User{
     this.password = bcrypt.hashSync(password, 8);
     this.isValid = true;
 
+
     userCollection.save(this, fn);
   }
 
@@ -63,7 +66,7 @@ function sendVerificationEmail(user, fn){
   form.append('from', 'admin@capstone.com');
   form.append('to', user.email);
   form.append('subject', 'Please verify your email address on Capstone');
-  form.append('html', `<a href="http://localhost:4000/verify/${user._id}">Click to Verify</a>`);
+  form.append('html', `<a href="http://localhost:5000/verify/${user._id}">Click to Verify</a>`);
 }
 
 module.exports = User;

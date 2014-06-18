@@ -33,6 +33,9 @@ function load(app, fn){
 
   app.all('*', users.bounce);
 
+  app.get('/users/:userId', dbg, users.show);
+  app.get('/users/:userId/edit', dbg, users.edit);
+  // app.post('/users/:userId/edit', dbg, users.update);
   app.post('/logout', dbg, users.logout);
 
 
