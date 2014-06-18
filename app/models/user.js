@@ -40,6 +40,14 @@ class User{
     });
   }
 
+    update(obj, fn){
+      this.name = obj.name;
+      this.email = obj.email;
+      this.zipcode = obj.zipcode;
+
+      userCollection.save(this, ()=>fn());
+  }
+
    changePassword(password, fn){
     this.password = bcrypt.hashSync(password, 8);
     this.isValid = true;
@@ -63,9 +71,9 @@ function sendVerificationEmail(user, fn){
   });
 
   var form = post.form();
-  form.append('from', 'admin@capstone.com');
+  form.append('from', 'admin@laborsaver.com');
   form.append('to', user.email);
-  form.append('subject', 'Please verify your email address on Capstone');
+  form.append('subject', 'Please verify your email address on LaborSaver');
   form.append('html', `<a href="http://localhost:5000/verify/${user._id}">Click to Verify</a>`);
 }
 

@@ -20,7 +20,7 @@ block content
       .interact.col-sm-12.col-md-2
         ul
           li
-            a email
+            a email #{user.email}
           li
-            a.btn.btn-default(href='/users/:userId/edit') edit profile
+            a.btn.btn-default(href='/users/#{user._id}/edit') edit profile
       .col-sm-12.col-md-2

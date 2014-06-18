@@ -30,12 +30,13 @@ function load(app, fn){
   app.post('/register', dbg, users.validate);
   app.get('/verify/:id', dbg, users.verify);
   app.post('/verify/:id', dbg, users.password);
+  app.get('/users/:id', dbg, users.show);
 
   app.all('*', users.bounce);
 
-  app.get('/users/:userId', dbg, users.show);
-  app.get('/users/:userId/edit', dbg, users.edit);
-  // app.post('/users/:userId/edit', dbg, users.update);
+  app.get('/users/:id/edit', dbg, users.edit);
+  app.post('/users/:id/edit', dbg, users.update);
+  // app.post('/users/:id/photo', dbg, users.addPhoto);
   app.post('/logout', dbg, users.logout);
 
 

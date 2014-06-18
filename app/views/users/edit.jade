@@ -6,8 +6,8 @@ block content
       .row
         .col-md-12
           h1 Edit Profile
-          form#update(method='post', action='/users/ + u._id + /edit')
-            input(type='name', name='name', autofocus=true, placeholder='Enter Name')
-            input(type='email', name='email', autofocus=true, placeholder='Email Address')
-            input(type='zipcode', name='zipcode', autofocus=true, placeholder='Enter Zipcode')
+          form#update(method='post', action='/users/#{user._id}/edit')
+            input(type='name', name='name', autofocus=true, placeholder='Enter Name', value='#{user.name}')
+            input(type='email', name='email', autofocus=true, placeholder='Email Address', value='#{user.email}')
+            input(type='zipcode', name='zipcode', autofocus=true, placeholder='Enter Zipcode', value='#{user.zipcode}')
             button#update Update
