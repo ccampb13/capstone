@@ -4,6 +4,7 @@ var userCollection = global.nss.db.collection('users');
 // var Mongo = require('mongodb');
 var traceur = require('traceur');
 var Base = traceur.require(__dirname + '/base.js');
+var _ = require('lodash');
 // var fs = require('fs');
 // var path = require('path');
 // var crypto = require('crypto');
@@ -70,6 +71,13 @@ class User{
 
   static findById(id, fn){
     Base.findById(id, userCollection, User, fn);
+  }
+
+  static findIdByUserName(name, fn){
+    userCollection.findOne({name:name}, (e, user)=>{
+      user = _.create(User.prototype, user);
+      fn(user);
+    });
   }
 }
 
