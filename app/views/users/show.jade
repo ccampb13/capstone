@@ -18,13 +18,13 @@ block content
           .proifle-wrapper
             .info
                 ul.info
-                  p.btn.btn-default Tasks
+                  p.btn.btn-default#tasks Tasks
                 ul.info
-                  p.btn.btn-default Search #{user.zipcode}
+                  p.btn.btn-default#search Search #{user.zipcode}
                 ul.info
                   a.btn.btn-default #{user.email}
                 ul.info
-                  a.btn.btn-default(href='/users/#{user._id}/edit') edit profile
+                  a.btn.btn-default#edit(href='/users/#{user._id}/edit') edit profile
 
       .col-md-8
         .well#contentMenu
@@ -33,9 +33,9 @@ block content
               h1.content-menu dashboard
             a#messages(href='/messages')
               h1.content-menu messages
-            a(href='#')
+            a#tasks(href='/tasks')
               h1.content-menu tasks
-            a(href='#')
+            a#search(href='/search')
               h1.content-menu search
         .well#content-container
             #content-container

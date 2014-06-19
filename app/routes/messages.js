@@ -24,7 +24,6 @@ exports.create = (req, res)=>{
     messageObj.subject = req.body.subject;
 
     Message.create(messageObj);
-    // res.send({status:1});
-    //  res.render('messages/index', {message:messageObj}, (e, loginHTML)=>{res.send({status:1, loginHTML:loginHTML});});
+  //   res.render('messages/index', {messages:messages, sentMessages:sentMessages, title: 'messages'});
   });
 };

@@ -9,6 +9,8 @@
   function init(){
     $('#messages').click(getMessages);
     $('#dashboard').click(getDashboard);
+    $('#search').click(getSearch);
+    $('#tasks').click(getTasks);
     getDashboard();
   }
 
@@ -20,11 +22,10 @@
     console.log(res);
     $('#content-container').empty().append(res);
     console.log(res);
-  });
+    });
 
     e.preventDefault();
   }
-
 
   function getDashboard(e){
     // var age = $('#age').serialize();
@@ -38,6 +39,33 @@
 
     e.preventDefault();
   }
+
+  function getSearch(e){
+    // var age = $('#age').serialize();
+
+    ajax('/search', 'GET', null, res=>{
+    console.log('RESSSSS');
+    console.log(res);
+    $('#content-container').empty().append(res);
+    console.log(res);
+  });
+
+    e.preventDefault();
+  }
+
+  function getTasks(e){
+    // var age = $('#age').serialize();
+
+    ajax('/tasks', 'GET', null, res=>{
+    console.log('RESSSSS');
+    console.log(res);
+    $('#content-container').empty().append(res);
+    console.log(res);
+  });
+
+    e.preventDefault();
+  }
+
 
 
   function ajax(url, type, data={}, success=r=>console.log(r), dataType='html'){
