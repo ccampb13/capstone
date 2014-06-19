@@ -3,6 +3,8 @@
 var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../models/user.js');
 // var multiparty = require('multiparty');
+// var userCollection = global.nss.db.collection('users');
+// var fs = require('fs');
 
 exports.login = (req, res)=>{
   res.render('users/login', {title: 'Login'});
@@ -36,6 +38,7 @@ exports.validate = (req, res)=>{
 
 exports.verify = (req, res)=>{
   User.findById(req.params.id, u=>{
+    console.log(u);
     res.render('users/verify', {u:u, title: 'User Verification'});
   });
 };
@@ -88,10 +91,29 @@ exports.update = (req, res)=>{
 };
 
 // exports.addPhoto = (req, res)=>{
-//   User.findById(req.params.id, user=>{
-//       var form = new multiparty.Form();
-//       form.parse(req, (err, fields, files)=>{
-//         user.addPhoto(files.photos, ()=>res.redirect(`/users/${user._id}`));
-//     });
+//   var form = new multiparty.Form();
+//
+//     form.parse(req, (err, fields, files)=>{
+//
+//       if(!fs.existsSync(`${__dirname}/../static/img/${fields.name[0]}`)){
+//         var user = {};
+//         user.name = fields.name[0];
+//
+//          files.photo.forEach(p=>{
+//             fs.mkdirSync(`${__dirname}/../static/img/${fields.name[0]}`);
+//             fs.renameSync(p.path, `${__dirname}/../static/img/${fields.name[0]}/${p.originalFilename}`);
+//             user.photo = (p.originalFilename);
+//         });
+//
+//           userCollection.save(user, ()=>res.redirect(`/users/${user._id}`));
+//         }else{
+//             res.redirect('/');
+//           }
 //   });
 // };
+  // User.findById(req.params.id, user=>{
+  //     var form = new multiparty.Form();
+  //     form.parse(req, (err, fields, files)=>{
+  //       user.addPhoto(files.photos, ()=>res.redirect(`/users/${user._id}`));
+  //   });
+  // });

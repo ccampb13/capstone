@@ -37,6 +37,9 @@ function load(app, fn){
   app.get('/users/:id/edit', dbg, users.edit);
   app.post('/users/:id/edit', dbg, users.update);
   // app.post('/users/:id/photo', dbg, users.addPhoto);
+
+
+
   app.post('/logout', dbg, users.logout);
 
 

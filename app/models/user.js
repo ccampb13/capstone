@@ -4,9 +4,13 @@ var userCollection = global.nss.db.collection('users');
 // var Mongo = require('mongodb');
 var traceur = require('traceur');
 var Base = traceur.require(__dirname + '/base.js');
+// var fs = require('fs');
+// var path = require('path');
+// var crypto = require('crypto');
+
 
 class User{
-  static create(obj, fn){
+  static create(obj,fn){
     userCollection.findOne({email:obj.email}, (e,u)=>{
       if(u){
         fn(null);
@@ -18,12 +22,14 @@ class User{
         user.name = obj.name;
         user.zipcode = obj.zipcode;
 
+
         userCollection.save(user, ()=>{
           sendVerificationEmail(user, fn);
         });
       }
     });
   }
+
 
   static login(obj, fn){
     userCollection.findOne({email:obj.email}, (e,u)=>{
@@ -40,6 +46,11 @@ class User{
     });
   }
 
+    isOwner(user){
+      return user.toString() === this._id.toString();
+    }
+
+
     update(obj, fn){
       this.name = obj.name;
       this.email = obj.email;
@@ -47,6 +58,7 @@ class User{
 
       userCollection.save(this, ()=>fn());
   }
+
 
    changePassword(password, fn){
     this.password = bcrypt.hashSync(password, 8);

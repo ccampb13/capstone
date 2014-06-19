@@ -23,11 +23,10 @@ html
         ul.pull-right
           li
             if(user)
-              a(href='/users/#{user._id}') Profile
+              a(href='/users/#{user._id}') #{user.name}'s Profile
             if(!user)
               a(href='/login') Log In
             if(user)
-              p#loginName #{user.name}
               form.logout(method='POST', action='/logout')
                 button.button-border Logout
 

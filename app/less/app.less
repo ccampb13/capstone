@@ -41,11 +41,12 @@
 
 .jumbotron a {
   font-size: 20px;
-  color: black;
+  color: red;
 }
 
 .learn-more {
   background-color: #f7f7f7;
+  height: 500px;
 }
 
 .learn-more h3 {
@@ -237,58 +238,110 @@ form#update {
   width: 50%;
 }
 
+
+
 ////////////////PROFILE PAGE/////////////////////////////////
 .profile-wrapper {
   margin: 0 auto;
   width: 80%;
-  border: 1px solid black;
   border-radius: 15px;
   background: white;
+  -moz-box-shadow:     3px 5px 6px @main-color;
+  -webkit-box-shadow: 3px 5px 6px @main-color;
+  box-shadow:         3px 5px 6px @main-color;
+  height: 600px;
 }
 
-.interact {
-  .btn{
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
-    ul {
-    list-style-type: none;
-      }
-  position: relative;
-  top: 50px;
-  // left: 800px;
-  display: inline-block;
-  // border: 1px solid black;
-}
-
-.profile-bar {
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  // margin: 0 auto;
-  width: 90%;
-  height: 200px;
-
-  border: 1px solid black;
-  background-image: contain;
-  background-repeat: no-repeat;
-  border-radius: 15px;
+h1.title {
   text-align: center;
-
-  h1 {
-    line-height: 200px;
-    color: white;
-  }
 }
 
-.interact, .info {
 
-    ul{
-    list-style-position: inside;
-    }
+h1.content-menu {
+  display: inline;
+  margin-left: 75px;
+  color: @main-color;
 }
+
+p.btn.btn-default, a.btn.btn-default, .btn.btn-default {
+  border: none;
+  margin: 5px;
+}
+
+.head-shot-div {
+  height: 200px;
+}
+
+.head-shot-image {
+  // margin-top: 100px;
+  margin-left: 25px;
+  height: 100%;
+  width: 100%;
+  -moz-box-shadow:     1px 3px @main-color;
+  -webkit-box-shadow: 1px 3px @main-color;
+  box-shadow: 1px 3px @main-color;
+  background-size: cover;
+  background-image: url("http://www.adas-lv.com/wp-content/uploads/2012/07/default_avatar.png")
+
+
+}
+
+.head-shot-form {
+  padding-top: 90px;
+  margin-left: 10px;
+}
+
+.well#content-container {
+  height: 450px;
+  background-color: white;
+}
+
+
+
+
+// .interact {
+//   .btn{
+//     margin-left: 20px;
+//     margin-right: 20px;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+//   }
+//     ul {
+//     list-style-type: none;
+//       }
+//   position: relative;
+//   top: 50px;
+//   // left: 800px;
+//   display: inline-block;
+//   // border: 1px solid black;
+// }
+//
+// .profile-bar {
+//   margin-top: 20px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   // margin: 0 auto;
+//   width: 90%;
+//   height: 200px;
+//
+//
+//   background-image: contain;
+//   background-repeat: no-repeat;
+//   border-radius: 15px;
+//   text-align: center;
+//
+//   h1 {
+//     line-height: 200px;
+//     color: white;
+//   }
+// }
+//
+// .interact, .info {
+//
+//     ul{
+//     list-style-position: inside;
+//     }
+// }
 
 
 ////////////ABOUT PAGE //////////////////////////////////
