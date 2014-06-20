@@ -15,20 +15,21 @@ html
             a(href='/')
               img.nav-logo(src='/img/lifesaver.png')
           li
-            a(href='/about') About
+            a.btn.btn-default#nav(href='/about') About
           li
-            a(href='/contact') Contact
+            a.btn.btn-default#nav(href='/contact') Contact
           li
-            a(href='/trust') Trust & Safety
+            a.btn.btn-default#nav(href='/trust') Trust & Safety
         ul.pull-right
           li
             if(user)
-              a(href='/users/#{user._id}') #{user.name}'s Profile
+              a.btn.btn-default#nav(href='/users/#{user._id}') #{user.name}'s Profile
             if(!user)
-              a(href='/login') Log In
+              a.btn.btn-default#nav(href='/login') Log In
             if(user)
               form.logout(method='POST', action='/logout')
-                button.button-border Logout
+                button.btn.btn-default#nav Logout
+
 
     block content
 

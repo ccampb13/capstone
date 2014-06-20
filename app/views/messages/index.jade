@@ -32,32 +32,32 @@ if(messages)
   .panel-heading
     ul.nav.nav-tabs
       li
-        a.glyphicon.glyphicon-inbox(href='#inbox', data-toggle='tab') inbox
+        a.btn.btn-default(href='#inbox', data-toggle='tab') inbox
       li.active
-        a.glyphicon.glyphicon-pencil(href='#compose', data-toggle='tab') compose
+        a.btn.btn-default(href='#compose', data-toggle='tab') compose
       li
-        a.glyphicon.glyphicon-send(href='#sent', data-toggle='tab') sent
+        a.btn.btn-default(href='#sent', data-toggle='tab') sent
   .panel-body.tab-content
     .tab-pane#compose
-      form(action='/messages', method='post')
+      form#compose(action='/messages', method='post')
         .input-group
           span.input-group-addon to:
-          input.form-control#message-to(type='text', name='name')
+          input.form-control(type='text', name='name')
         .input-group
           span.input-group-addon subject:
           input.form-control#message-subject(type='text', name='subject')
         br
         textarea.form-control#message-content(name='message')
         button.btn.btn-success.glyphicon.glyphicon-send
-        button.btn.btn-default.glyphicon.glyphicon-remove#clear
+        //- button.btn.btn-default.glyphicon.glyphicon-remove#clear
     .tab-pane.active#inbox
         table.table.table-hover
-          thead
+          thead#head
             tr.info
               td From
               td Subject
               td View
-              td Delete
+              //- td Delete
           tbody
           if(messages)
             each message in messages
@@ -66,8 +66,8 @@ if(messages)
                 td= message.subject
                 td
                   button.btn.btn-info.glyphicon.glyphicon-eye-open(type='button', data-toggle='modal', data-target='##{message._id}')
-                td
-                  button.btn.btn-warning.glyphicon.glyphicon-trash
+                //- td
+                //-   button.btn.btn-warning.glyphicon.glyphicon-trash
     .tab-pane#sent
         table.table.table-hover
           thead
@@ -75,7 +75,7 @@ if(messages)
               td To
               td Subject
               td View
-              td Delete
+              //- td Delete
           tbody
           if(sentMessages)
             each message in sentMessages
@@ -84,8 +84,9 @@ if(messages)
                 td= message.subject
                 td
                   button.btn.btn-info.glyphicon.glyphicon-eye-open(type='button', data-toggle='modal', data-target='##{message._id}')
-                td
-                  button.btn.btn-warning.glyphicon.glyphicon-trash
+
+                //- td
+                //-   button.btn.btn-warning.glyphicon.glyphicon-trash
 
 
 block scripts

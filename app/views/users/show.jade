@@ -1,7 +1,7 @@
 extends ../shared/template
 
 block content
-  h1.title= title
+  h1.title
 
   #page-container
     .row
@@ -18,9 +18,9 @@ block content
           .proifle-wrapper
             .info
                 ul.info
-                  p.btn.btn-default#tasks Tasks
+                  p.btn.btn-default Tasks
                 ul.info
-                  p.btn.btn-default#search Search #{user.zipcode}
+                  p.btn.btn-default Search #{user.zipcode}
                 ul.info
                   a.btn.btn-default #{user.email}
                 ul.info
