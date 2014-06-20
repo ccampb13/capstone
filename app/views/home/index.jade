@@ -32,14 +32,14 @@ block content
       .row
         .col-md-4
         .col-md-8
-          input#zip(type='text', placeholder='Enter Zip Code', autofocus=true)
+          input#zip(type='text', placeholder='Enter Zip Code')
           button.btn.btn-default#add Search
           #map
         //- h1 Help a Neighbor, Get Paid
         //- p Pass off your smaller tasks and focus on what really matters.
         //- a(href='#') Learn More
 
-  .learn-more
+  .do-more
     .container
       .row
         .col-md-4
@@ -80,3 +80,6 @@ block content
       .row
         .col-md-12
           p © 2014 Peak Nine Designs, All Rights Reserved — Built in Nashville. Live Life.
+
+block scripts
+  script(src='/js/es6/compiled/map.js')

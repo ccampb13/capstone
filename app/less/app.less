@@ -1,6 +1,6 @@
 @main-color: #008D97;
 ///////////////HOME.INDEX///////////////////////////
-////////////////////////////////////////////////////
+/////////////nav bar///////////////////////////////////////
 
 .nav a {
   color: #5a5a5a;
@@ -29,11 +29,20 @@ text-transform: uppercase;
   width: 30px;
 }
 
-.footer-logo {
-  margin-top: 3px;
-  height: 200px;
-  width: 200px;
+
+.logout {
+  display: inline-block;
+  margin: 1px;
 }
+
+#loginName {
+  display: inline;
+  margin-right: 5px;
+}
+
+
+/////////////////jumbobtron//////////////////////////////////////
+
 
 .jumbotron {
   background-image:url('http://37.media.tumblr.com/6755c171c47e020419102fb49d3e6f5e/tumblr_n381rrGEmG1st5lhmo1_1280.jpg');
@@ -41,20 +50,7 @@ text-transform: uppercase;
   height: 500px;
 }
 
-.jumbotron-two {
-  // background-image:url('https://s3.amazonaws.com/ooomf-com-files/3WEdcurTfKyrW3RITCa0_DSC07884.jpg');
-  height: 300px;
-  background-size: cover;
-}
-
 .jumbotron h1 {
-  color: #fff;
-  font-size: 48px;
-  font-family: 'Shift', sans-serif;
-  font-weight: bold;
-}
-
-.jumbotron-two h1 {
   color: #fff;
   font-size: 48px;
   font-family: 'Shift', sans-serif;
@@ -66,27 +62,23 @@ text-transform: uppercase;
   color: #fff;
 }
 
-.jumbotron-two p {
-  font-size: 20px;
-  color: #fff;
-}
-
-
 .jumbotron a {
   font-size: 20px;
   color: red;
 }
 
-.jumbotron-two a {
-  font-size: 20px;
-  color: red;
+.jumbotron .container {
+    position: relative;
+    top: 100px;
 }
 
+/////////////////////////.learn-more////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////
 
 
 .learn-more {
   background-color: #ffffff;
-  height: 250px;
+  height: 350px;
 }
 
 .learn-more h3 {
@@ -101,15 +93,94 @@ text-transform: uppercase;
 }
 
 
-.jumbotron .container {
-    position: relative;
-    top: 100px;
+/////////////////////.jumbotron-two/////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+
+
+.jumbotron-two {
+  // background-image:url('https://s3.amazonaws.com/ooomf-com-files/3WEdcurTfKyrW3RITCa0_DSC07884.jpg');
+  height: 300px;
+  background-size: cover;
+
+    input#zip{
+      display:block;
+      width: 40%;
+      min-width: 230px;
+      margin: 15px auto;
+      padding: 15px;
+      background-color: #fbfbfb;
+      border:none;
+      border-bottom: 3px @main-color;
+      color: green;
+      text-align: center;
+  }
+
+    button.btn.btn-default#add {
+      webkit-appearance:none;
+      display:block;
+      width: 220px;
+      margin: 15px auto;
+      border:3px solid white;
+      padding:10px 0px;
+      background-color: @main-color;
+      color: #FFFFFF;
+    }
 }
 
-// .jumbotron-two .container {
-//   position: relative:
-//   top: 100px;
-// }
+.jumbotron-two h1 {
+  color: #fff;
+  font-size: 48px;
+  font-family: 'Shift', sans-serif;
+  font-weight: bold;
+}
+
+.jumbotron-two p {
+  font-size: 20px;
+  color: #fff;
+}
+
+
+.jumbotron-two a {
+  font-size: 20px;
+  color: red;
+}
+
+
+#map {
+  border: 1px solid black;
+  border-top-left-radius: 50px 100px;
+  border-top-right-radius: 50px 100px;
+  border-bottom-left-radius: 50px 100px;
+  border-bottom-right-radius: 50px 100px;
+  width: 560px;
+  height: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 10px 10px 5px #888888;
+}
+
+////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////
+
+
+.do-more {
+  height: 600px;
+  background-color: #ffffff;
+}
+
+.do-more h3 {
+  font-family: 'Shift', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.do-more a {
+  color: @main-color;
+}
+
+
+//////////////////////////////////////////////
+///////////////////////////////////////////////
 
 .social-guides {
     background-color: #ffffff;
@@ -120,7 +191,7 @@ text-transform: uppercase;
     color: #5a5a5a;
     font-size: 15px;
     margin-left: 25px;
-    }
+}
 
 .social-guides p {
     font-size: 15px;
@@ -143,27 +214,12 @@ text-transform: uppercase;
   margin: 5px;
 }
 
-.logout {
-  display: inline-block;
-  margin: 1px;
-}
+/////////////////////////////////////////////////////////////////
 
-#loginName {
-  display: inline;
-  margin-right: 5px;
-}
-
-#map {
-  border: 1px solid black;
-  border-top-left-radius: 50px 100px;
-  border-top-right-radius: 50px 100px;
-  border-bottom-left-radius: 50px 100px;
-  border-bottom-right-radius: 50px 100px;
-  width: 560px;
-  height: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 10px 10px 5px #888888;
+.footer-logo {
+  margin-top: 3px;
+  height: 200px;
+  width: 200px;
 }
 
 /////////////Login Page /////////////////////////////////////
@@ -375,6 +431,53 @@ p.btn.btn-default, a.btn.btn-default, .btn.btn-default {
 
 thead#head{
   background-color: white;
+}
+
+//////////////////////////SEARCH PAGE/////////////////////////////////////
+
+#search-container h4 {
+  display: inline;
+}
+
+#search-container {
+  input#ziptwo{
+    display:block;
+    width: 40%;
+    min-width: 230px;
+    margin: 15px auto;
+    padding: 15px;
+    background-color: #fbfbfb;
+    border:none;
+    border-bottom: 3px @main-color;
+    color: green;
+    text-align: center;
+  }
+
+  button.btn.btn-default#add {
+    webkit-appearance:none;
+    display:block;
+    width: 220px;
+    margin: 15px auto;
+    border:3px solid white;
+    padding:10px 0px;
+    background-color: @main-color;
+    color: #FFFFFF;
+  }
+}
+
+
+#map {
+  border: 1px solid black;
+  border-top-left-radius: 50px 100px;
+  border-top-right-radius: 50px 100px;
+  border-bottom-left-radius: 50px 100px;
+  border-bottom-right-radius: 50px 100px;
+  width: 600px;
+  height: 420px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 10px 10px 5px #888888;
+  float: right;
 }
 
 
