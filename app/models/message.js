@@ -8,8 +8,8 @@ var _ = require('lodash');
 
 class Message{
   static create(obj){
-    console.log('THIS IS THE Content');
-    console.log(obj.content);
+    // console.log('THIS IS THE Content');
+    // console.log(obj.content);
     if(obj){   //&& obj.toId && obj.fromId && obj.subject && obj.body
       var message = new Message();
       message.toId = Mongo.ObjectID(obj.toId);
@@ -35,8 +35,8 @@ class Message{
     messages.find({toId:toId}).toArray((err, records)=>{
       if(records.length === 0){fn(null); return;}
       records = records.map(r=>_.create(Message.prototype, r));
-      console.log('recorddssss');
-      console.log(records);
+      // console.log('recorddssss');
+      // console.log(records);
       fn(records);
     });
   }

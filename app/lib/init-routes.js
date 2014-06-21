@@ -38,6 +38,8 @@ function load(app, fn){
 
   app.all('*', users.bounce);
 
+  app.get('/dashboard', dbg, dashboard.index);
+
   app.get('/users/:id/edit', dbg, users.edit);
   app.post('/users/:id/edit', dbg, users.update);
   // app.post('/users/:id/photo', dbg, users.addPhoto);

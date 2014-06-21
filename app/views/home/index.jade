@@ -11,33 +11,31 @@ block content
     .container
       .row
         .col-md-4
-          h3 Welcome the Change
-          p
-            | Find a helping hand minutes away. Let Savers handle those jobs. Get back to the most important one.
-          p
-            a(href='/about') See how to get back time
+          .thumbnail#learn-more
+            h4 FAST
+            P Get experienced help around the corner
         .col-md-4
-          h3 Make An Impact
-          p Helping your community could pay your bills or fund your next vacation.
-          p
-            a(href='#') Learn more about being a Saver
+          .thumbnail#learn-more
+            h4 SAFE
+            p Background Checks for all workers
         .col-md-4
-          h3 Trust and Safety
-          p From Verified ID to our worldwide customer support team, we've got your back.
-          p
-            a(href='/trust') Learn about trust at LaborSaver
+          .thumbnail#learn-more
+            h4 EASY
+            p  Make contact and plans in only a few clicks
+
 
   .jumbotron-two
     .container
       .row
         .col-md-4
         .col-md-8
-          input#zip(type='text', placeholder='Enter Zip Code')
-          button.btn.btn-default#add Search
-          #map
-        //- h1 Help a Neighbor, Get Paid
-        //- p Pass off your smaller tasks and focus on what really matters.
-        //- a(href='#') Learn More
+          .map-container
+            #map
+            input#zip(type='text', placeholder='Enter Zip Code')
+            button.btn.btn-default#add Search
+          //- h1 Help a Neighbor, Get Paid
+          //- p Pass off your smaller tasks and focus on what really matters.
+          //- a(href='#') Learn More
 
   .do-more
     .container
@@ -79,7 +77,7 @@ block content
             P help@capstone.com
       .row
         .col-md-12
-          p © 2014 Peak Nine Designs, All Rights Reserved — Built in Nashville. Live Life.
+          p © 2014 Peak Nine Designs, All Rights Reserved —  Nashville, TN
 
 block scripts
   script(src='/js/es6/compiled/map.js')

@@ -9,5 +9,8 @@ block content
           form#update(method='post', action='/users/#{user._id}/edit')
             input(type='name', name='name', autofocus=true, placeholder='Enter Name', value='#{user.name}')
             input(type='email', name='email', autofocus=true, placeholder='Email Address', value='#{user.email}')
+            input(type='text', name='streetName', autofocus=true, placeholder='Street Address', value='#{user.streetName}')
+            input(type='text', name='city', autofocus=true, placeholder='City', value='#{user.city}')
+            input(type='text', name='state', autofocus=true, placeholder='State', value='#{user.state}')
             input(type='zipcode', name='zipcode', autofocus=true, placeholder='Enter Zipcode', value='#{user.zipcode}')
             button#update Update

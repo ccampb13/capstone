@@ -21,6 +21,9 @@ class User{
         user.password = '';
         user.isValid = false;
         user.name = obj.name;
+        user.streetName = obj.streetName;
+        user.city = obj.city;
+        user.state = obj.state;
         user.zipcode = obj.zipcode;
 
 
@@ -48,6 +51,8 @@ class User{
   }
 
     isOwner(user){
+      console.log('*************************');
+      console.log(user);
       return user.toString() === this._id.toString();
     }
 
@@ -68,6 +73,26 @@ class User{
 
     userCollection.save(this, fn);
   }
+
+  findParams(fn){
+    var searchParams = {};
+    searchParams.zipcode  = this.zipcode;
+    fn(searchParams);
+  }
+
+  findMatches(params, fn){
+    var user = this;
+    var zipcode = params.zipcode;
+    console.log('------ZIPCODE------');
+    console.log(zipcode);
+    console.log('------THIS------');
+    console.log(this);
+    userCollection.find({_id: {$ne: user._id}, zipcode: zipcode}).toArray((e, users)=>{
+      users = users.map(u=>_.create(User.prototype, u));
+        fn(users);
+    });
+  }
+
 
   static findById(id, fn){
     Base.findById(id, userCollection, User, fn);

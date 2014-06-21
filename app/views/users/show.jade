@@ -10,11 +10,11 @@ block content
           .head-shot-div
             .head-shot-image
               .head-shot-form
-                if(user.isOwner(user))
-                  form(action='/users/#{user._id}/photo', method='post', enctype='multipart/form-data', placeholder='Browse Images')
+                if(user.isOwner(user._id))
+                  form(action='/users/#{user._id}/photo', method='post', enctype='multipart/form-data')
                     input(type='file', name='photo', required, multiple=true)
                     button.btn.btn-default Add Photo
-                else
+
           .proifle-wrapper
             .info
                 ul.info
@@ -24,7 +24,8 @@ block content
                 ul.info
                   a.btn.btn-default #{user.email}
                 ul.info
-                  a.btn.btn-default#edit(href='/users/#{user._id}/edit') edit profile
+                  if(user.isOwner(user._id))
+                    a.btn.btn-default#edit(href='/users/#{user._id}/edit') edit profile
 
       .col-md-8
         .well#contentMenu

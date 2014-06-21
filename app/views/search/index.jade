@@ -3,16 +3,16 @@
 //- block content
 #search-container
   #map
-  #info
-    h4 List of help near you
-    p list
-    p list
-    p list
-    p list
-    p list
-    p list
-    input#ziptwo(type='text', placeholder='Enter Zip Code')
-    button.btn.btn-default#add Search
+  #searchResults
+    h4 Nearby Trusted Helpers
+    hr
+    each user in matchedUsers
+      .results(data-zipcode='#{matchedUsers.zipcode}')
+        .name
+          p= user.name
+          a.btn.btn-default(href='#{user._id}') view profile
+  input#ziptwo(type='text', placeholder='Enter Zip Code')
+  button.btn.btn-default#add Search
 
 block scripts
   script(src='/js/es6/compiled/map.js')

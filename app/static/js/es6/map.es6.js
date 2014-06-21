@@ -10,37 +10,42 @@
 
 
   function init(){
-    initMap(36.1667, -86.7833, 11);
-    $('#add').click(add);
-  }
-
-   function add(){
-    let zip = $('#zip').val().trim();
-    searchMap(zip);
+    initMap(36.1667, -86.7833, 12);
+    addMarkers();
   }
 
   function initMap(lat, lng, zoom){
-    let styles = [{'stylers':[{'hue':'#dd0d0d'}]},{'featureType':'road','elementType':'labels','stylers':[{'visibility':'off'}]},{'featureType':'road','elementType':'geometry','stylers':[{'lightness':100},{'visibility':'simplified'}]}];
+    let styles = [{'featureType':'water','stylers':[{'visibility':'on'},{'color':'#acbcc9'}]},{'featureType':'landscape','stylers':[{'color':'#f2e5d4'}]},{'featureType':'road.highway','elementType':'geometry','stylers':[{'color':'#c5c6c6'}]},{'featureType':'road.arterial','elementType':'geometry','stylers':[{'color':'#e4d7c6'}]},{'featureType':'road.local','elementType':'geometry','stylers':[{'color':'#fbfaf7'}]},{'featureType':'poi.park','elementType':'geometry','stylers':[{'color':'#c5dac6'}]},{'featureType':'administrative','stylers':[{'visibility':'on'},{'lightness':33}]},{'featureType':'road'},{'featureType':'poi.park','elementType':'labels','stylers':[{'visibility':'on'},{'lightness':20}]},{},{'featureType':'road','stylers':[{'lightness':20}]}];
     let mapOptions = {center: new google.maps.LatLng(lat, lng), zoom: zoom, mapTypeId: google.maps.MapTypeId.ROADMAP, styles: styles};  //{is used when adding multiple statements}
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
   }
 
-  function searchMap(zip){
-    let geocoder = new google.maps.Geocoder();
 
-    geocoder.geocode({address:zip},(results, status)=>{  // ()=> creates an anonymous function with results and status being the paramaters
-      let name = results[0].formatted_address;
-      let lat = results[0].geometry.location.lat();
-      let lng = results[0].geometry.location.lng();
-      addMarker(lat, lng, name);
-    });
-  }
+  function addMarkers(){
+      var wells = $('#searchResults').find('.well-sm');
+      wells.each(function(){
+        var name = $(this).find('.name').text();
+        var zipcode = $(this).attr('data-zipcode');
+        var lat = $(this).attr('data-lat');
+        var long = $(this).attr('data-long');
+        var point = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
+        var marker = new google.maps.Marker({
+          position: point,
+          map: map
+        });
 
-  function addMarker(lat, lng, name, icon){
-    let latLng = new google.maps.LatLng(lat, lng);
-    new google.maps.Marker({map: map, position: latLng, title:name, icon:icon}); //icon adds the flag
-  }
+        var infoWindow = new google.maps.InfoWindow();
+        var html = '<h4>'+name+'</h4>'+'<p>'+zipcode+'</p>';
+        google.maps.event.addListener(marker, 'click', function(){
+          infoWindow.setContent(html);
+          infoWindow.open(map, marker);
+        });
+      });
+    }
+
 })();
+
+
 
 
 
