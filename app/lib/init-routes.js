@@ -40,6 +40,8 @@ function load(app, fn){
 
   app.get('/dashboard', dbg, dashboard.index);
 
+  app.get('/users/:id/editPhotos', dbg, users.editPhotos);
+  app.post('/users/:id/addPhotos', dbg, users.addPhotos);
   app.get('/users/:id/edit', dbg, users.edit);
   app.post('/users/:id/edit', dbg, users.update);
   // app.post('/users/:id/photo', dbg, users.addPhoto);
@@ -54,7 +56,6 @@ function load(app, fn){
   app.get('/tasks', dbg, tasks.index);
 
   app.post('/logout', dbg, users.logout);
-
 
 
 

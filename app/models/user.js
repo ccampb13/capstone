@@ -1,11 +1,12 @@
 var bcrypt = require('bcrypt');
 var request = require('request');
 var userCollection = global.nss.db.collection('users');
-// var Mongo = require('mongodb');
+var Mongo = require('mongodb');
 var traceur = require('traceur');
 var Base = traceur.require(__dirname + '/base.js');
 var _ = require('lodash');
-// var fs = require('fs');
+var mkdirp = require('mkdirp');
+var fs = require('fs');
 // var path = require('path');
 // var crypto = require('crypto');
 
@@ -14,9 +15,12 @@ class User{
   static create(obj,fn){
     userCollection.findOne({email:obj.email}, (e,u)=>{
       if(u){
+        console.log('-------user');
+        console.log(u);
         fn(null);
       }else{
         var user = new User();
+        user._id = Mongo.ObjectID(obj._id);
         user.email = obj.email;
         user.password = '';
         user.isValid = false;
@@ -25,12 +29,33 @@ class User{
         user.city = obj.city;
         user.state = obj.state;
         user.zipcode = obj.zipcode;
+        user.photos = [];
 
 
         userCollection.save(user, ()=>{
           sendVerificationEmail(user, fn);
         });
       }
+    });
+  }
+
+  save(fn){
+    userCollection.save(this, ()=>fn());
+  }
+
+  addPhotos(photos){
+    photos.forEach((p,i)=>{
+      var photo = {};
+      photo.fileName = p.originalFilename;
+      photo.path = `/img/${this._id}/${photo.fileName}`;
+      if(i){
+        photo.isPrimary = false;
+      } else {
+        photo.isPrimary = true;
+      }
+      this.photos.push(photo);
+      mkdirp(`${__dirname}/../static/img/${this._id}/`);
+      fs.renameSync(p.path, __dirname+'/../static/img/'+ this._id + '/' + photo.fileName);
     });
   }
 
@@ -50,23 +75,23 @@ class User{
     });
   }
 
-    isOwner(user){
-      console.log('*************************');
-      console.log(user);
-      return user.toString() === this._id.toString();
-    }
-
-
-    update(obj, fn){
-      this.name = obj.name;
-      this.email = obj.email;
-      this.zipcode = obj.zipcode;
-
-      userCollection.save(this, ()=>fn());
+  isOwner(user){
+    console.log('*************************');
+    console.log(user);
+    return user.toString() === this._id.toString();
   }
 
 
-   changePassword(password, fn){
+  update(obj, fn){
+    this.name = obj.name;
+    this.email = obj.email;
+    this.zipcode = obj.zipcode;
+
+    userCollection.save(this, ()=>fn());
+  }
+
+
+  changePassword(password, fn){
     this.password = bcrypt.hashSync(password, 8);
     this.isValid = true;
 

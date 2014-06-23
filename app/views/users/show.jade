@@ -9,11 +9,12 @@ block content
         #menu-container
           .head-shot-div
             .head-shot-image
-              .head-shot-form
-                if(user.isOwner(user._id))
-                  form(action='/users/#{user._id}/photo', method='post', enctype='multipart/form-data')
-                    input(type='file', name='photo', required, multiple=true)
-                    button.btn.btn-default Add Photo
+              if(user.photos.length)
+                each photo,i in user.photos
+                  if(photo.isPrimary)
+                    img#profile-photo(src=photo.path)
+              else
+                img#profile-photo(src='/img/default-user.png')
 
           .proifle-wrapper
             .info
@@ -26,6 +27,9 @@ block content
                 ul.info
                   if(user.isOwner(user._id))
                     a.btn.btn-default#edit(href='/users/#{user._id}/edit') edit profile
+                ul.info
+                  a.btn.btn-default(href='/users/#{user._id}/editPhotos') Add Photo
+
 
       .col-md-8
         .well#contentMenu

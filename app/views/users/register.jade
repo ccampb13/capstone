@@ -8,7 +8,7 @@ block content
         .col-md-12
           h1= title
           form#register(method='post', action='/register')
-            input(type='name', name='name', autofocus=true, placeholder='Enter Name')
+            input(type='text', name='name', autofocus=true, placeholder='Enter Name')
             input(type='email', name='email', autofocus=true, placeholder='Email Address')
             input(type='text', name='streetName', autofocus=true, placeholder='Street Address')
             input(type='text', name='city', autofocus=true, placeholder='City')
