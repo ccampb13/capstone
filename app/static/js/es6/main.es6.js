@@ -10,10 +10,10 @@
 
   function init(){
     getDashboard();
+    $('.content-menu-box').on('click', '#dashboard', getDashboard);
     $('#messages').click(getMessages);
     $('#search').click(getSearch);
     $('#tasks').click(getTasks);
-    $('.content-menu-box').on('click', '#dashboard', getDashboard);
     $('#content-container').on('click', '#new-task', newTask);
 
 
@@ -38,18 +38,14 @@
     console.log(res);
     $('#content-container').empty().append(res);
     console.log(res);
-  });
-
+    });
   }
 
   function getSearch(e){
     // var age = $('#age').serialize();
 
     ajax('/search', 'GET', null, res=>{
-    console.log('RESSSSS');
-    console.log(res);
     $('#content-container').empty().append(res);
-    console.log(res);
   });
 
     e.preventDefault();
@@ -59,16 +55,14 @@
     // var age = $('#age').serialize();
 
     ajax('/tasks', 'GET', null, res=>{
-    console.log('RESSSSS');
-    console.log(res);
     $('#content-container').empty().append(res);
-    console.log(res);
   });
 
     e.preventDefault();
   }
 
   function newTask(){
+
     ajax('/tasks/new', 'GET', null, res=>{
     $('#content-container').empty().append(res);
     });

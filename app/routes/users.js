@@ -3,6 +3,7 @@
 var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../models/user.js');
 var multiparty = require('multiparty');
+var request = require('request');
 // var userCollection = global.nss.db.collection('users');
 // var fs = require('fs');
 
@@ -28,11 +29,20 @@ exports.authenticate = (req, res)=>{
 
 exports.validate = (req, res)=>{
   User.create(req.body, user=>{
-    if(user){
-      res.redirect('/');
-    }else{
-      res.redirect('/register');
-    }
+      var street = user.streetName.split(' ').map(each=>each.trim());
+      request('https://maps.googleapis.com/maps/api/geocode/json?address='+street[0]+'+'+street[1]+'+'+street[2]+',+Nashville,+TN&key=AIzaSyAmTXRHkPuPkegIsHnUZ-NRX_yrqmZIAXA', function(err, response, body){
+      if(!err && response.statusCode === 200){
+        body = JSON.parse(body);
+        var lat = body.results[0].geometry.location.lat;
+  		  var long = body.results[0].geometry.location.lng;
+        user.latlong.push(lat,long);
+        console.log('*********user********************');
+        console.log(user);
+        user.save((user)=>{
+          res.redirect('/');
+        });
+      }
+    });
   });
 };
 

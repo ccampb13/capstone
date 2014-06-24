@@ -1,17 +1,17 @@
 'use strict';
 
 exports.index = (req, res)=>{
-  res.render('home/index', {title: 'Home'});
+  res.render('home/index', {title: 'Workmates'});
 };
 
 exports.about = (req, res)=>{
-  res.render('home/about', {title: 'About'});
+  res.render('home/about', {title: 'Workmates'});
 };
 
 exports.contact = (req, res)=>{
-  res.render('home/contact', {title: 'Contact'});
+  res.render('home/contact', {title: 'Workmates'});
 };
 
 exports.trust = (req, res)=>{
-  res.render('home/trust', {title: 'Trust & Safety'});
+  res.render('home/trust', {title: 'Workmates'});
 };

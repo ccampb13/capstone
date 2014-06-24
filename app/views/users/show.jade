@@ -29,8 +29,6 @@ block content
                 ul.info
                   if(user.isOwner(user._id))
                     a.btn.btn-default#edit(href='/users/#{user._id}/edit') edit profile
-                //- ul.info
-                //-   a.btn.btn-default(href='/users/#{user._id}/editPhotos') Add Photo
                 ul.info
                   form(method='post', action='/users/#{user._id}/addPhotos', enctype='multipart/form-data')
                     input.btn.btn-default(type='file', multiple='true', name='photos')
@@ -50,27 +48,9 @@ block content
               h1.content-menu search
         .well#content-container
             #content-container
-      .col-md-8
+    .row
+      .col-md-2
+      .col-md-4
        p.btn.btn-default #{user.bio}
-
-            //- .profile-wrapper
-            //-   .row
-            //-     .profile-bar
-            //-   .row
-            //-     .col-sm-12.col-md-1
-            //-     .col-sm-12.col-md-3
-            //-       .profile-pic
-            //-       .info
-            //-           li
-            //-             h4 Zipcode #{user.zipcode}
-            //-     .col-sm-12.col-md-4
-            //-       .row
-            //-         .about-me
-            //-           p oh yeah
-            //-     .interact.col-sm-12.col-md-2
-            //-       ul
-            //-         li
-            //-           a email #{user.email}
-            //-         li
-            //-           a.btn.btn-default(href='/users/#{user._id}/edit') edit profile
-            //-     .col-sm-12.col-md-2
+       p.btn.btn-default #{user.experience}
+      .col-md-4

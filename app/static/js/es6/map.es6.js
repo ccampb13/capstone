@@ -22,20 +22,24 @@
 
 
   function addMarkers(){
-      var wells = $('#searchResults').find('.well-sm');
+      var wells = $('#searchResults').find('.results');
       wells.each(function(){
         var name = $(this).find('.name').text();
         var zipcode = $(this).attr('data-zipcode');
+        var experience = $(this).attr('data-experience');
+        var email = $(this).attr('data-email');
         var lat = $(this).attr('data-lat');
         var long = $(this).attr('data-long');
+        var icon = '../img/usa.png';
         var point = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
         var marker = new google.maps.Marker({
           position: point,
+          icon:icon,
           map: map
         });
 
         var infoWindow = new google.maps.InfoWindow();
-        var html = '<h4>'+name+'</h4>'+'<p>'+zipcode+'</p>';
+        var html = '<h4>'+name+'</h4>'+'<p>'+experience+'</p>'+'<p>'+email+'</p>';
         google.maps.event.addListener(marker, 'click', function(){
           infoWindow.setContent(html);
           infoWindow.open(map, marker);

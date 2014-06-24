@@ -15,8 +15,6 @@ class User{
   static create(obj,fn){
     userCollection.findOne({email:obj.email}, (e,u)=>{
       if(u){
-        console.log('-------user');
-        console.log(u);
         fn(null);
       }else{
         var user = new User();
@@ -25,11 +23,16 @@ class User{
         user.password = '';
         user.isValid = false;
         user.name = obj.name;
+        user.gender = obj.gender;
         user.streetName = obj.streetName;
         user.city = obj.city;
         user.state = obj.state;
         user.zipcode = obj.zipcode;
+        user.latlong = [];
         user.age = '';
+        user.isNeeding = false;
+        user.isHelp = false;
+        user.experience = '';
         user.bio ='';
         user.photos = [];
 
@@ -90,6 +93,7 @@ class User{
     this.zipcode = obj.zipcode;
     this.age = obj.age;
     this.bio = obj.bio;
+    this.experience = obj.experience;
 
 
     userCollection.save(this, ()=>fn());
@@ -147,9 +151,9 @@ function sendVerificationEmail(user, fn){
   });
 
   var form = post.form();
-  form.append('from', 'admin@laborsaver.com');
+  form.append('from', 'admin@workmates.com');
   form.append('to', user.email);
-  form.append('subject', 'Please verify your email address on LaborSaver');
+  form.append('subject', 'Please verify your email address on Workmates');
   form.append('html', `<a href="http://localhost:5000/verify/${user._id}">Click to Verify</a>`);
 }
 
