@@ -19,16 +19,22 @@ block content
           .proifle-wrapper
             .info
                 ul.info
-                  p.btn.btn-default Tasks
+                  p.btn.btn-default #{user.name}
                 ul.info
-                  p.btn.btn-default Search #{user.zipcode}
+                  p.btn.btn-default Zipcode #{user.zipcode}
                 ul.info
-                  a.btn.btn-default #{user.email}
+                  p.btn.btn-default #{user.email}
+                ul.info
+                  p.btn.btn-default Age #{user.age}
                 ul.info
                   if(user.isOwner(user._id))
                     a.btn.btn-default#edit(href='/users/#{user._id}/edit') edit profile
+                //- ul.info
+                //-   a.btn.btn-default(href='/users/#{user._id}/editPhotos') Add Photo
                 ul.info
-                  a.btn.btn-default(href='/users/#{user._id}/editPhotos') Add Photo
+                  form(method='post', action='/users/#{user._id}/addPhotos', enctype='multipart/form-data')
+                    input.btn.btn-default(type='file', multiple='true', name='photos')
+                    button.btn.btn-default Add Photo
 
 
       .col-md-8
@@ -44,7 +50,8 @@ block content
               h1.content-menu search
         .well#content-container
             #content-container
-
+      .col-md-8
+       p.btn.btn-default #{user.bio}
 
             //- .profile-wrapper
             //-   .row

@@ -44,7 +44,7 @@ function load(app, fn){
   app.post('/users/:id/addPhotos', dbg, users.addPhotos);
   app.get('/users/:id/edit', dbg, users.edit);
   app.post('/users/:id/edit', dbg, users.update);
-  // app.post('/users/:id/photo', dbg, users.addPhoto);
+
 
   app.get('/messages', dbg, messages.index);
   app.post('/messages', dbg, messages.create);
@@ -54,6 +54,7 @@ function load(app, fn){
   app.get('/search', dbg, search.index);
 
   app.get('/tasks', dbg, tasks.index);
+  app.get('/tasks/new', dbg, tasks.new);
 
   app.post('/logout', dbg, users.logout);
 

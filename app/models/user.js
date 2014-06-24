@@ -29,6 +29,8 @@ class User{
         user.city = obj.city;
         user.state = obj.state;
         user.zipcode = obj.zipcode;
+        user.age = '';
+        user.bio ='';
         user.photos = [];
 
 
@@ -86,6 +88,9 @@ class User{
     this.name = obj.name;
     this.email = obj.email;
     this.zipcode = obj.zipcode;
+    this.age = obj.age;
+    this.bio = obj.bio;
+
 
     userCollection.save(this, ()=>fn());
   }

@@ -10,10 +10,12 @@
 
   function init(){
     getDashboard();
-    $('.content-menu-box').on('click', '#messages', getMessages);
-    $('#dashboard').click(getDashboard);
+    $('#messages').click(getMessages);
     $('#search').click(getSearch);
     $('#tasks').click(getTasks);
+    $('.content-menu-box').on('click', '#dashboard', getDashboard);
+    $('#content-container').on('click', '#new-task', newTask);
+
 
   }
 
@@ -66,6 +68,11 @@
     e.preventDefault();
   }
 
+  function newTask(){
+    ajax('/tasks/new', 'GET', null, res=>{
+    $('#content-container').empty().append(res);
+    });
+  }
 
 
   function ajax(url, type, data={}, success=r=>console.log(r), dataType='html'){

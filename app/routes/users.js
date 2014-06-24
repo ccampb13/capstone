@@ -65,6 +65,7 @@ exports.addPhotos = (req, res)=>{
   });
 };
 
+
 exports.lookup = (req, res, next)=>{
   User.findById(req.session.userId, user=>{
     if(user){
