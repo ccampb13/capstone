@@ -39,7 +39,7 @@
         });
 
         var infoWindow = new google.maps.InfoWindow();
-        var html = '<h4>'+name+'</h4>'+'<p>'+email+'</p>'+'<p>'+experience+'</p>';
+        var html = '<h4>'+name+'</h4>'+'<p>'+experience+'</p>';
         google.maps.event.addListener(marker, 'click', function(){
           infoWindow.setContent(html);
           infoWindow.open(map, marker);
