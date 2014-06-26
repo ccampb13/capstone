@@ -81,9 +81,9 @@ class User{
   }
 
   isOwner(user){
-    console.log('*************************');
+    console.log('________________________');
     console.log(user);
-    return user.toString() === this._id.toString();
+    return user._id.toString() === this._id.toString();
   }
 
 
@@ -94,6 +94,7 @@ class User{
     this.age = obj.age;
     this.bio = obj.bio;
     this.experience = obj.experience;
+
 
 
     userCollection.save(this, ()=>fn());

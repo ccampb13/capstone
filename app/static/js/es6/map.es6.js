@@ -30,7 +30,7 @@
         var email = $(this).attr('data-email');
         var lat = $(this).attr('data-lat');
         var long = $(this).attr('data-long');
-        var icon = '../img/usa.png';
+        var icon = '../img/handshake-marker.png';
         var point = new google.maps.LatLng(parseFloat(lat),parseFloat(long));
         var marker = new google.maps.Marker({
           position: point,
@@ -39,10 +39,11 @@
         });
 
         var infoWindow = new google.maps.InfoWindow();
-        var html = '<h4>'+name+'</h4>'+'<p>'+experience+'</p>'+'<p>'+email+'</p>';
+        var html = '<h4>'+name+'</h4>'+'<p>'+email+'</p>'+'<p>'+experience+'</p>';
         google.maps.event.addListener(marker, 'click', function(){
           infoWindow.setContent(html);
           infoWindow.open(map, marker);
+
         });
       });
     }

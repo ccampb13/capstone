@@ -3,9 +3,12 @@ extends ../shared/template
 block content
   .jumbotron
     .container
-        h1 Rediscover Your Day
-        p Pass off your smaller tasks and focus on what really matters
-        a(href='#') Now available in Nashville
+      h1 Rediscover Your Day
+      p Pass off your smaller tasks and focus on what really matters
+      a(href='#') Now available in Nashville
+
+
+
 
   .learn-more
     .container
@@ -25,42 +28,50 @@ block content
       .row
         .container#howdoes
           .col-md-4
+
           .col-md-4
-            h4 How does it work?
+            //- img#handoff-logo(src='img/handshake.png')
           .col-md-4
       .row
         .col-md-2
+          //- .thumbnail#learn-more
+        .col-md-4
           .thumbnail#learn-more
-        .col-md-8
+            //- h3 search for workmates in your area
+            //- h3 contact them
+            //- h3 reap the benefits
+        .col-md-4
           .thumbnail#learn-more
         .col-md-2
-          .thumbnail#learn-more
 
-  .jumbotron-two
-    .container
-      .row
-        .col-md-3
-        .col-md-6
-          h1 Your Tasks, In Good Hands
-        .col-md-3
-
-          //- h1 Help a Neighbor, Get Paid
-          //- p Pass off your smaller tasks and focus on what really matters.
-          //- a(href='#') Learn More
-
-  .do-more
-    .container
-      .row
-        .col-md-4
-        .col-md-4
-        .col-md-4
+  //-
+  //- .jumbotron-two
+  //-   .container
+  //-     .row
+  //-       .col-md-3
+  //-       .col-md-6
+  //-         h1 Your Tasks, In Good Hands
+  //-       .col-md-3
+  //-     .row
+  //-       .col-md-3
+  //-       .col-md-6
+  //-         .container#trust
+  //-           p trust
+  //-       .col-md-3
+  //-
+  //- .do-more
+  //-   .container
+  //-     .row
+  //-       .col-md-4
+  //-       .col-md-4
+  //-       .col-md-4
 
   .social-guides
     .container
       .row
         .col-md-4
           a(href='/')
-            img.footer-logo(src='/img/lifesaver.png')
+            img.footer-logo(src='/img/handshake.png')
         .col-md-2
           h5 SOCIAL
           p

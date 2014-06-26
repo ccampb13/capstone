@@ -27,12 +27,13 @@ block content
                 ul.info
                   p.btn.btn-default Age #{user.age}
                 ul.info
-                  if(user.isOwner(user._id))
+                  if(user.isOwner(user))
                     a.btn.btn-default#edit(href='/users/#{user._id}/edit') edit profile
                 ul.info
-                  form(method='post', action='/users/#{user._id}/addPhotos', enctype='multipart/form-data')
-                    input.btn.btn-default(type='file', multiple='true', name='photos')
-                    button.btn.btn-default Add Photo
+                  if(user.isOwner)
+                    form(method='post', action='/users/#{user._id}/addPhotos', enctype='multipart/form-data')
+                      input.btn.btn-default(type='file', multiple='true', name='photos')
+                      button.btn.btn-default Add Photo
 
 
       .col-md-8
@@ -40,17 +41,14 @@ block content
           .content-menu-box
             a#dashboard(href='/dashboard')
               h1.content-menu dashboard
-            a#messages(href='/messages')
-              h1.content-menu messages
-            a#tasks(href='/tasks')
-              h1.content-menu tasks
-            a#search(href='/search')
-              h1.content-menu search
+            if(user.isOwner)
+              a#messages(href='/messages')
+                h1.content-menu messages
+            //- if(user.isOwner)
+            //-   a#tasks(href='/tasks')
+            //-     h1.content-menu tasks
+            if(user.isOwner)
+              a#search(href='/search')
+                h1.content-menu search
         .well#content-container
             #content-container
-    .row
-      .col-md-2
-      .col-md-4
-       p.btn.btn-default #{user.bio}
-       p.btn.btn-default #{user.experience}
-      .col-md-4

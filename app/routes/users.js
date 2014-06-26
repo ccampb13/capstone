@@ -21,7 +21,7 @@ exports.authenticate = (req, res)=>{
       req.session.userId = user._id;
       res.redirect(`/users/${user._id}`);
     }else{
-      req.session = null;
+      req.session.userId = null;
       res.redirect('/login');
     }
   });
@@ -36,8 +36,6 @@ exports.validate = (req, res)=>{
         var lat = body.results[0].geometry.location.lat;
   		  var long = body.results[0].geometry.location.lng;
         user.latlong.push(lat,long);
-        console.log('*********user********************');
-        console.log(user);
         user.save((user)=>{
           res.redirect('/');
         });
@@ -101,6 +99,8 @@ exports.logout = (req, res)=>{
 
 exports.show = (req, res)=>{
   User.findById(req.params.id, user=>{
+    console.log('************************');
+    console.log(user);
     res.render('users/show' , {user:user, title: 'Profile Page'});
   });
 };

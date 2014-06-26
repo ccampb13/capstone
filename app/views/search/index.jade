@@ -4,13 +4,13 @@
 #search-container
   #map
   #searchResults
-    h4 Nearby Trusted Helpers
+    h4 Nearby Trusted Workmates
     hr
     each user in matchedUsers
-      .results(data-zipcode='#{matchedUsers.zipcode}', data-email='#{user.email}', data-experience='#{user.experience}', data-lat='#{user.latlong[0]}', data-long='#{user.latlong[1]}')
+      .results(data-zipcode='#{matchedUsers.zipcode}', data-email='#{user.email}', data-experience='#{user.experience}', data-lat='#{user.latlong[0]}', data-long='#{user.latlong[1]}', data-img='#{user.photos}')
         .name
-          p= user.name
-          a.btn.btn-default(href='#{user._id}') view profile
+          a.btn.btn-default(href='#{user._id}')= user.name
+
 
 block scripts
   script(src='/js/es6/compiled/map.js')
