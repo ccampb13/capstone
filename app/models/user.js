@@ -155,7 +155,7 @@ function sendVerificationEmail(user, fn){
   form.append('from', 'admin@workmates.com');
   form.append('to', user.email);
   form.append('subject', 'Please verify your email address on Workmates');
-  form.append('html', `<a href="http://workmates.chadcampbell.info/verify/${user._id}">Click to Verify</a>`);
+  form.append('html', `<a href="http://localhost:5000/verify/${user._id}">Click to Verify</a>`);
 }
 
 module.exports = User;

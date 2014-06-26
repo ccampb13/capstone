@@ -28,8 +28,12 @@ exports.authenticate = (req, res)=>{
 };
 
 exports.validate = (req, res)=>{
+  console.log(req.body);
   User.create(req.body, user=>{
+      console.log('---------------');
+      console.log(user);
       var street = user.streetName.split(' ').map(each=>each.trim());
+      console.log(user);
       request('https://maps.googleapis.com/maps/api/geocode/json?address='+street[0]+'+'+street[1]+'+'+street[2]+',+Nashville,+TN&key=AIzaSyAmTXRHkPuPkegIsHnUZ-NRX_yrqmZIAXA', function(err, response, body){
       if(!err && response.statusCode === 200){
         body = JSON.parse(body);
